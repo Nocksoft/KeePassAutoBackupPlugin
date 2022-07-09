@@ -1,0 +1,2 @@
+Changelog for version 1.0.0 (final) - (Release date: 2019-08-29)
+-First release

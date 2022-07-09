@@ -1,0 +1,5 @@
+# Files that will be ignored
+.vs
+**/bin/Release**
+**/bin/Debug**
+**/obj/**
