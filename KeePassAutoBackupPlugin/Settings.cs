@@ -42,8 +42,8 @@ namespace KeePassAutoBackupPlugin
         internal static int BackupsPreserve { get; private set; }
 
         internal static bool BackupOnDatabaseExit { get; private set; }
-        internal static bool BackupOnlyWhenDatabaseHasChanged { get; private set; }
         internal static bool BackupOnDatabaseChange { get; private set; }
+        internal static bool BackupOnlyWhenDatabaseHasChanged { get; private set; }
 
         internal static void LoadSettings()
         {
@@ -79,15 +79,15 @@ namespace KeePassAutoBackupPlugin
             if (valueStr == "true" || valueStr == "yes" || valueStr == "1") BackupOnDatabaseExit = true;
             else BackupOnDatabaseExit = false;
 
-            /* BackupOnlyWhenDatabaseHasChanged */
-            valueStr = ini.GetValue("config", "BackupOnlyWhenDatabaseHasChanged");
-            if (valueStr == "true" || valueStr == "yes" || valueStr == "1") BackupOnlyWhenDatabaseHasChanged = true;
-            else BackupOnlyWhenDatabaseHasChanged = false;
-
             /* BackupOnDatabaseChange */
             valueStr = ini.GetValue("config", "BackupOnDatabaseChange");
             if (valueStr == "true" || valueStr == "yes" || valueStr == "1") BackupOnDatabaseChange = true;
             else BackupOnDatabaseChange = false;
+
+            /* BackupOnlyWhenDatabaseHasChanged */
+            valueStr = ini.GetValue("config", "BackupOnlyWhenDatabaseHasChanged");
+            if (valueStr == "true" || valueStr == "yes" || valueStr == "1") BackupOnlyWhenDatabaseHasChanged = true;
+            else BackupOnlyWhenDatabaseHasChanged = false;
         }
 
         private static string ReplaceAppData(string path)
