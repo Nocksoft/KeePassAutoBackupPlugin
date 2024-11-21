@@ -39,6 +39,7 @@ namespace KeePassAutoBackupPlugin
     {
         internal static string BackupPath { get; set; }
         internal static bool BackupInSourceDir { get; private set; }
+        internal static string[] BackupExclusions { get; set; }
         internal static int BackupsPreserve { get; private set; }
 
         internal static bool BackupOnDatabaseExit { get; private set; }
@@ -60,6 +61,15 @@ namespace KeePassAutoBackupPlugin
             }
             else
                 BackupInSourceDir = true;
+
+            /* BackupExclusions */
+            valueStr = ini.GetValue("config", "BackupExclusions");
+            if (!string.IsNullOrWhiteSpace(valueStr))
+            {
+                BackupExclusions = valueStr.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            else
+                BackupExclusions = null;
 
             /* BackupsPreserve */
             int valueInt;

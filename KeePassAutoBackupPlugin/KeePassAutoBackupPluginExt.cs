@@ -33,6 +33,7 @@ using KeePass.Plugins;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace KeePassAutoBackupPlugin
 {
@@ -116,6 +117,7 @@ namespace KeePassAutoBackupPlugin
             foreach (KeyValuePair<string, bool> item in _Databases)
             {
                 if (item.Key != database) continue;
+                if (Settings.BackupExclusions != null && Settings.BackupExclusions.Contains(Path.GetFileName(database), StringComparer.OrdinalIgnoreCase)) continue;
                 if (Settings.BackupOnlyWhenDatabaseHasChanged == true && item.Value == false) continue;
 
 
