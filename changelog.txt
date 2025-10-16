@@ -1,2 +1,8 @@
+Changelog for version 1.0.1 (final) - (Release date: 2025-10-16)
+-Added option for backup exclusions
+
+
+
+
 Changelog for version 1.0.0 (final) - (Release date: 2019-08-29)
 -First release
